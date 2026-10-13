@@ -1,0 +1,21 @@
+syntax = "proto3";
+package etcd.v1;
+
+
+import "etcd/messages/kv.proto";
+
+
+message PutRequest {
+    // key is the key, in bytes, to put into the key-value store.
+    bytes key = 1;
+    // value is the value, in bytes, to associate with the key in the key-value store.
+    bytes value = 2;
+
+    // If prev_kv is set, etcd gets the previous key-value pair before changing it.
+    // The previous key-value pair will be returned in the put response.
+    bool prev_kv = 3;
+}
+
+message PutResponse {
+    etcd.v1.entities.KeyVal prev_kv = 1;
+}

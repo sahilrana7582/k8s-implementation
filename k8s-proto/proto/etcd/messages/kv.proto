@@ -1,0 +1,13 @@
+syntax = 'proto3';
+package etcd.v1.entities;
+
+
+message KeyVal {
+    bytes key = 1;
+    // version is the version of the key. A deletion resets
+    // the version to zero and any modification of the key
+    // increases its version.
+    int64 version = 2;
+    // value is the value held by the key, in bytes.
+    bytes value = 3;
+}

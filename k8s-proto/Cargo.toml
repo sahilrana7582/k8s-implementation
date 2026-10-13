@@ -1,0 +1,22 @@
+
+[package]
+name = "k8s-proto"
+version = "0.1.0"
+edition = "2024"
+authors = ["Sahil Rana <sahilrana27582@gmail.com>"]
+description = "The central Protobuf and gRPC library for k8s services"
+build = "build.rs"
+
+[build-dependencies]
+tonic-prost = "0.14.6"
+tonic-prost-build = "0.14.6"
+
+
+[features]
+default = [
+    "build-server",
+    "build-client",
+]
+
+build-server = []
+build-client = []
